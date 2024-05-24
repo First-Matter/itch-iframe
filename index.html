@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GET RICH / DIVE TRYING</title>
+    <title>first-matter</title>
     <style>
         body, html {
             margin: 0;
@@ -23,6 +23,50 @@
     </style>
 </head>
 <body>
-    <iframe src="https://first-matter.github.io/get-rich-dive-trying/"></iframe>
+    <iframe id="gameFrame" src="https://first-matter.github.io/get-rich-dive-trying/"></iframe>
+
+    <script>
+        const iframe = document.getElementById('gameFrame');
+
+        document.addEventListener('fullscreenchange', (event) => {
+            if (document.fullscreenElement) {
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+            } else {
+                iframe.style.width = '960px';
+                iframe.style.height = '600px';
+            }
+        });
+
+        document.addEventListener('webkitfullscreenchange', (event) => {
+            if (document.webkitFullscreenElement) {
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+            } else {
+                iframe.style.width = '960px';
+                iframe.style.height = '600px';
+            }
+        });
+
+        document.addEventListener('mozfullscreenchange', (event) => {
+            if (document.mozFullScreenElement) {
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+            } else {
+                iframe.style.width = '960px';
+                iframe.style.height = '600px';
+            }
+        });
+
+        document.addEventListener('msfullscreenchange', (event) => {
+            if (document.msFullscreenElement) {
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+            } else {
+                iframe.style.width = '960px';
+                iframe.style.height = '600px';
+            }
+        });
+    </script>
 </body>
 </html>
