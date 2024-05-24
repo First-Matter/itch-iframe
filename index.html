@@ -3,8 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GET RICH / DIVE TRYING</title>
+    <title>first-matter</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+        :root {
+            --itchio_white_back: #fff;
+            --itchio_gray_back: #F4F4F4;
+            --itchio_body_color: #222;
+            --itchio_body_color_gray: #767676;
+            --itchio_body_color_med: #434343;
+            --itchio_body_color_light: #606060;
+            --itchio_body_color_lighter: #858585;
+            --itchio_edge_border_color: #cdcdcd;
+            --itchio_input_border_color: #cdcdcd;
+            --itchio_input_focus_color: #361275;
+            --itchio_light_highlight: #FFF0F0;
+            --itchio_warning_bg: #fffdbd;
+            --itchio_gutter_width: 40px;
+            --itchio_ui_bg: #284a5b;
+            --itchio_ui_bg_dark: #224455;
+            --itchio_font_family: '04b_03', Lato, sans-serif;
+            --itchio_bg_color: #00A8FF;
+            --itchio_bg2_color: rgba(0, 23, 59, 1);
+            --itchio_bg2_sub: #172e52;
+            --itchio_text_color: #f1f1f1;
+            --itchio_link_color: #fa5c5c;
+            --itchio_border_color: #0d3779;
+            --itchio_button_color: #fa5c5c;
+            --itchio_button_fg_color: #ffffff;
+            --itchio_button_shadow_color: #e54747;
+        }
+
         body, html {
             margin: 0;
             padding: 0;
@@ -14,6 +44,7 @@
             justify-content: center;
             align-items: center;
             background-color: #000; /* Optional: Set the background color */
+            font-family: var(--itchio_font_family);
         }
         iframe {
             border: none;
@@ -22,17 +53,22 @@
         }
         #fullscreenButton {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
+            bottom: 0;
+            right: 0;
+            margin: 8px;
+            font-size: 16px;
+            display: block;
+            transition: opacity 0.4s;
+            background: none;
+            padding: 0;
+            border: 0;
             cursor: pointer;
-            z-index: 1000;
-            display: none; /* Initially hidden */
+            opacity: .8;
+            color: var(--itchio_button_fg_color);
         }
         #fullscreenButton img {
-            width: 32px; /* Adjust the size as needed */
-            height: 32px; /* Adjust the size as needed */
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
