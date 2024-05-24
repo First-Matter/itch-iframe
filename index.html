@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>first-matter</title>
+    <title>GET RICH / DIVE TRYING</title>
     <style>
         body, html {
             margin: 0;
@@ -20,53 +20,66 @@
             width: 960px;
             height: 600px;
         }
+        #fullscreenButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            display: none; /* Initially hidden */
+        }
+        #fullscreenButton img {
+            width: 32px; /* Adjust the size as needed */
+            height: 32px; /* Adjust the size as needed */
+        }
     </style>
 </head>
 <body>
+    <button id="fullscreenButton" title="Enter fullscreen">
+        <img src="https://itch.io/static/images/enlarge.svg?1716527903" alt="Enter fullscreen">
+    </button>
     <iframe id="gameFrame" src="https://first-matter.github.io/get-rich-dive-trying/"></iframe>
 
     <script>
         const iframe = document.getElementById('gameFrame');
+        const button = document.getElementById('fullscreenButton');
 
-        document.addEventListener('fullscreenchange', (event) => {
-            if (document.fullscreenElement) {
+        const adjustIframeSize = () => {
+            if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
                 iframe.style.width = '100%';
                 iframe.style.height = '100%';
             } else {
                 iframe.style.width = '960px';
                 iframe.style.height = '600px';
             }
-        });
+        };
 
-        document.addEventListener('webkitfullscreenchange', (event) => {
-            if (document.webkitFullscreenElement) {
-                iframe.style.width = '100%';
-                iframe.style.height = '100%';
-            } else {
-                iframe.style.width = '960px';
-                iframe.style.height = '600px';
+        button.addEventListener('click', () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
             }
         });
 
-        document.addEventListener('mozfullscreenchange', (event) => {
-            if (document.mozFullScreenElement) {
-                iframe.style.width = '100%';
-                iframe.style.height = '100%';
-            } else {
-                iframe.style.width = '960px';
-                iframe.style.height = '600px';
-            }
-        });
+        document.addEventListener('fullscreenchange', adjustIframeSize);
+        document.addEventListener('webkitfullscreenchange', adjustIframeSize);
+        document.addEventListener('mozfullscreenchange', adjustIframeSize);
+        document.addEventListener('msfullscreenchange', adjustIframeSize);
 
-        document.addEventListener('msfullscreenchange', (event) => {
-            if (document.msFullscreenElement) {
-                iframe.style.width = '100%';
-                iframe.style.height = '100%';
-            } else {
-                iframe.style.width = '960px';
-                iframe.style.height = '600px';
+        // Show the custom fullscreen button if itch.io's is not present
+        window.onload = () => {
+            const itchFullscreenButton = document.querySelector('.fullscreen_btn');
+            if (!itchFullscreenButton) {
+                button.style.display = 'block';
             }
-        });
+        };
     </script>
 </body>
 </html>
