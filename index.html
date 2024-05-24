@@ -1,121 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
     <title>first-matter</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-
-        :root {
-            --itchio_white_back: #fff;
-            --itchio_gray_back: #F4F4F4;
-            --itchio_body_color: #222;
-            --itchio_body_color_gray: #767676;
-            --itchio_body_color_med: #434343;
-            --itchio_body_color_light: #606060;
-            --itchio_body_color_lighter: #858585;
-            --itchio_edge_border_color: #cdcdcd;
-            --itchio_input_border_color: #cdcdcd;
-            --itchio_input_focus_color: #361275;
-            --itchio_light_highlight: #FFF0F0;
-            --itchio_warning_bg: #fffdbd;
-            --itchio_gutter_width: 40px;
-            --itchio_ui_bg: #284a5b;
-            --itchio_ui_bg_dark: #224455;
-            --itchio_font_family: '04b_03', Lato, sans-serif;
-            --itchio_bg_color: #00A8FF;
-            --itchio_bg2_color: rgba(0, 23, 59, 1);
-            --itchio_bg2_sub: #172e52;
-            --itchio_text_color: #f1f1f1;
-            --itchio_link_color: #fa5c5c;
-            --itchio_border_color: #0d3779;
-            --itchio_button_color: #fa5c5c;
-            --itchio_button_fg_color: #ffffff;
-            --itchio_button_shadow_color: #e54747;
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000; /* Optional: Set the background color */
-            font-family: var(--itchio_font_family);
-        }
-        iframe {
-            border: none;
-            width: 960px;
-            height: 600px;
-        }
-        #fullscreenButton {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            margin: 8px;
-            font-size: 16px;
-            display: block;
-            transition: opacity 0.4s;
-            background: none;
-            padding: 0;
-            border: 0;
-            cursor: pointer;
-            opacity: .8;
-            color: var(--itchio_button_fg_color);
-        }
-        #fullscreenButton img {
-            width: 30px;
-            height: 30px;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: black;
+      }
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        border: none;
+      }
     </style>
-</head>
-<body>
-    <button id="fullscreenButton" title="Enter fullscreen">
-        <img src="https://itch.io/static/images/enlarge.svg" alt="Enter fullscreen">
-    </button>
-    <iframe id="gameFrame" src="https://first-matter.github.io/get-rich-dive-trying/"></iframe>
-
-    <script>
-        const iframe = document.getElementById('gameFrame');
-        const button = document.getElementById('fullscreenButton');
-
-        const adjustIframeSize = () => {
-            if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
-                iframe.style.width = '100%';
-                iframe.style.height = '100%';
-            } else {
-                iframe.style.width = '960px';
-                iframe.style.height = '600px';
-            }
-        };
-
-        button.addEventListener('click', () => {
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { // Firefox
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { // IE/Edge
-                iframe.msRequestFullscreen();
-            }
-        });
-
-        document.addEventListener('fullscreenchange', adjustIframeSize);
-        document.addEventListener('webkitfullscreenchange', adjustIframeSize);
-        document.addEventListener('mozfullscreenchange', adjustIframeSize);
-        document.addEventListener('msfullscreenchange', adjustIframeSize);
-
-        // Show the custom fullscreen button if itch.io's is not present
-        window.onload = () => {
-            const itchFullscreenButton = document.querySelector('.fullscreen_btn');
-            if (!itchFullscreenButton) {
-                button.style.display = 'block';
-            }
-        };
-    </script>
-</body>
+  </head>
+  <body>
+    <iframe
+      src="https://first-matter.github.io/get-rich-dive-trying/"
+      allow="autoplay"
+    ></iframe>
+  </body>
 </html>
